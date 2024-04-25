@@ -1,30 +1,13 @@
 <template>
-  <div>Hello {{ designation }} of {{ name }}</div>
-  <div v-html="designation"></div>
-  <div v-text="userid"></div>
-  <h2 v-bind:id="headingId">Hello H2</h2>
-  <button v-bind:disabled="isDisabled">Submit</button>
-
-  <h2 class="underline">Underlined Text</h2>
-  <h2 class="underline" v-bind:class="status">Status</h2>
-  <h2 v-bind:class="isPromoted && 'promoted'">Promoted Movie</h2>
-  <h2 v-bind:class="isSoldout ? 'sold-out':'new'">Soldout? movie</h2>
-  <h2 v-bind:class="['new', 'promoted']">Newly Promoted Movie</h2>
-  <h2 v-bind:class="[isPromoted && 'promoted', isSoldout ? 'sold-out':'new']">Conditionally Newly Promoted Movie</h2>
-  <h2 v-bind:class="{
-    promoted: isPromoted,
-    new: !isSoldout,
-    'sold-out': isSoldout 
-  }">Object Conditional Movie</h2>
-  <h2 v-bind:style="{
-    color: highlightColor,
-    fontSize: headerSize + 'px',
-    padding: '20px'
-  }">Inline Style</h2>
-  <h2 v-bind:style="headerStyleObject">MID</h2>
-
-  <div v-bind:style="[baseStyleObject, successStyleObject ]">Success Style</div>
-  <div v-bind:style="[baseStyleObject, dangerStyleObject ]">Danger Style</div>
+  <h2 v-if="num === 0">This is Number zero</h2>
+  <h2 v-else-if="num < 0">This is -ve Number</h2>
+  <h2 v-else-if="num > 0">This is +ve Number</h2>
+  <h2 v-else>This  is not  Number</h2>
+  <template v-if="display">
+    <h2>Rehan</h2>
+    <h2>Midhat</h2>
+    <h2>Saqlain</h2>
+  </template>
 </template>
 
 <script>
@@ -33,36 +16,8 @@ export default {
   name: 'App',
   data() {
     return {
-      designation: "<b>Tech Lead</b>",
-      name: "Midhat",
-      userid: "midhatshaikh26",
-      headingId: 'heading',
-      isDisabled: true,
-      status: 'danger',
-      isPromoted: true,
-      isSoldout: true,
-      highlightColor: 'orange',
-      headerSize: 50,
-      headerStyleObject: {
-        color: 'orange',
-        fontSize: '50px',
-        padding: '20px'
-      },
-      baseStyleObject: {
-        fontSize: '50px',
-        padding: '10px'
-      },
-      successStyleObject: {
-        color: 'green',
-        backgroundColor: 'lightgreen',
-        border: '1px solid green',
-        padding: '20px'
-      },
-      dangerStyleObject: {
-        color: 'darkred',
-        backgroundColor: 'red',
-        border: '1px solid darkred'
-      },
+      num: "Hi",
+      display: true
     }
   }
 }
