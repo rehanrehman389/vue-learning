@@ -1,16 +1,18 @@
 <template>
-  <h2 v-if="num === 0">This is Number zero</h2>
-  <h2 v-else-if="num < 0">This is -ve Number</h2>
-  <h2 v-else-if="num > 0">This is +ve Number</h2>
-  <h2 v-else>This  is not  Number</h2>
-  <template v-if="display">
-    <h2>Rehan</h2>
-    <h2>Midhat</h2>
-    <h2>Saqlain</h2>
-  </template>
+  <h2 v-for="(name, index) in names" :key="name">{{ index}} {{ name }}</h2>
+  <h2 v-for="name in fullNames" :key="name.first"> {{ name.first }} {{ name.last }}</h2>
 
-  <h2 v-show="show">Using V show</h2>
-  <h2 v-if="show">Using V IF</h2>
+  <div v-for="actor in actors" :key="actor.name">
+    <h2> {{ actor.name }}</h2>
+    <h3 v-for="movie in actor.movies" :key="movie"> {{ movie }}</h3>
+  </div>
+
+  <h2 v-for="(value, key, index) in myinfo" :key="value">{{ index }} {{ key }} {{ value }}</h2>
+
+  <template v-for="name in names" :key="name">
+    <h2>{{ name }}</h2>
+    <hr/>
+  </template>
 </template>
 
 <script>
@@ -19,9 +21,27 @@ export default {
   name: 'App',
   data() {
     return {
-      num: "Hi",
-      display: true,
-      show: false
+      names: ['Midhat', 'Ayesha', 'Rehan'], //array
+      fullNames: [
+        {first: 'Midhat', last: 'Shaikh'},
+        {first: 'Saqlain', last: 'Shaikh'},
+        {first: 'Rehan', last: 'Ansari'}
+      ], //array of obj
+      actors: [
+        {
+          name: 'Charles',
+          movies: ['Batman', 'The Prestige'],
+        },
+        {
+          name: 'Di Caprio',
+          movies: ['Titanic', 'Inception']
+        }
+      ],//array of array
+      myinfo: {
+        name: 'Midhat',
+        profession: 'Developer',
+        gender: 'F'
+      }
     }
   }
 }
