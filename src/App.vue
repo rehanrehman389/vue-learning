@@ -8,6 +8,9 @@
     <h2>Midhat</h2>
     <h2>Saqlain</h2>
   </template>
+
+  <h2 v-show="show">Using V show</h2>
+  <h2 v-if="show">Using V IF</h2>
 </template>
 
 <script>
@@ -17,7 +20,8 @@ export default {
   data() {
     return {
       num: "Hi",
-      display: true
+      display: true,
+      show: false
     }
   }
 }
