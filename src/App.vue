@@ -1,15 +1,32 @@
 <template>
-  <h2>{{ name }}</h2>
   <div>
-    <!-- <button @click="changeName">Change Name</button> -->
-    <button @click="changeName($event), increment(1, $event)">Change Name</button>
+    <pre>{{ formValues }}</pre>
   </div>
-
-  <h2>{{ count }}</h2>
-  <div>
-    <button @click="increment(1, $event)">Increament 1</button>
-    <button @click="decrement(1)">Decrement 1</button>
-  </div>
+  <form>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" v-model="formValues.name">
+    </div>
+    <div>
+      <label for="profile">Profile</label>
+      <textarea id="profile" v-model="formValues.profileSummary" />
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <select id="country" v-model="formValues.country">
+        <option value="">Select a country</option>
+        <option value="India">India</option>
+        <option value="singapore">Singapore</option>
+      </select>
+    </div>
+    <div>
+      <label for="skills">Skills</label>
+      <select id="skills" multiple v-model="formValues.skills">
+        <option value="java">JAVA</option>
+        <option value="sql">SQL</option>
+      </select>
+    </div>
+  </form>
 </template>
 
 <script>
@@ -18,22 +35,15 @@ export default {
   name: 'App',
   data() {
     return {
-      name: 'Rehan',
-      count: 0
+      formValues: {
+        name: '',
+        profileSummary: '',
+        country: '',
+        skills: []
+      }
     }
   },
   methods: {
-    changeName(event) {
-      this.name = 'Batman'
-      console.log('event', event)
-    },
-    increment(num, event) {
-      this.count += num
-      console.log('event', event)
-    },
-    decrement(num) {
-      this.count -= num
-    }
   }
 }
 </script>
