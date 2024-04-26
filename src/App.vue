@@ -2,7 +2,7 @@
   <div>
     <pre>{{ formValues }}</pre>
   </div>
-  <form>
+  <form @submit="submitForm">
     <div>
       <label for="name">Name</label>
       <input type="text" id="name" v-model="formValues.name">
@@ -26,6 +26,12 @@
         <option value="sql">SQL</option>
       </select>
     </div>
+    <div>
+      <input type="checkbox" id="remotework" v-model="formValues.remoteWork" true-value="yes" false-value="no" />
+      <label for="remotework">Open to remote?</label>
+    </div>
+
+    <div><button>Submit</button></div>
   </form>
 </template>
 
@@ -39,11 +45,16 @@ export default {
         name: '',
         profileSummary: '',
         country: '',
-        skills: []
+        skills: [],
+        remoteWork: "no"
       }
     }
   },
   methods: {
+    submitForm(event) {
+      event.preventDefault()
+      console.log('Form Values', this.formValues)
+    }
   }
 }
 </script>
