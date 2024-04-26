@@ -1,7 +1,14 @@
 <template>
-  <h2> Function {{ add(1,2,3) }}</h2>
-  <h2> Function {{ add(8,6,7) }}</h2>
-  <h2> Multiply {{ multiply(baseValue) }}</h2>
+  <h2>{{ name }}</h2>
+  <div>
+    <button v-on:mouseover="name = 'Batman'">Change Name</button>
+  </div>
+
+  <h2>{{ count }}</h2>
+  <div>
+    <button v-on:click="increment(1)">Increament 1</button>
+    <button v-on:click="decrement(1)">Decrement 1</button>
+  </div>
 </template>
 
 <script>
@@ -10,16 +17,16 @@ export default {
   name: 'App',
   data() {
     return {
-      baseMuiltiplier: 5,
-      baseValue: 5
+      name: 'Rehan',
+      count: 0
     }
   },
   methods: {
-    add(a, b, c) {
-      return a + b + c
+    increment(num) {
+      this.count += num
     },
-    multiply(num) {
-      return num * this.baseMuiltiplier
+    decrement(num) {
+      this.count -= num
     }
   }
 }
