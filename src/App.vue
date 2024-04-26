@@ -1,7 +1,7 @@
 <template>
-  <template v-for="name in names" :key="name">
-    <h2 v-if="name === 'Midhat'"> {{ name }} </h2>
-  </template>
+  <h2> Function {{ add(1,2,3) }}</h2>
+  <h2> Function {{ add(8,6,7) }}</h2>
+  <h2> Multiply {{ multiply(baseValue) }}</h2>
 </template>
 
 <script>
@@ -10,27 +10,16 @@ export default {
   name: 'App',
   data() {
     return {
-      names: ['Midhat', 'Ayesha', 'Rehan'], //array
-      fullNames: [
-        {first: 'Midhat', last: 'Shaikh'},
-        {first: 'Saqlain', last: 'Shaikh'},
-        {first: 'Rehan', last: 'Ansari'}
-      ], //array of obj
-      actors: [
-        {
-          name: 'Charles',
-          movies: ['Batman', 'The Prestige'],
-        },
-        {
-          name: 'Di Caprio',
-          movies: ['Titanic', 'Inception']
-        }
-      ],//array of array
-      myinfo: {
-        name: 'Midhat',
-        profession: 'Developer',
-        gender: 'F'
-      }
+      baseMuiltiplier: 5,
+      baseValue: 5
+    }
+  },
+  methods: {
+    add(a, b, c) {
+      return a + b + c
+    },
+    multiply(num) {
+      return num * this.baseMuiltiplier
     }
   }
 }
