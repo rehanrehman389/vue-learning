@@ -11,7 +11,7 @@
   <input type="text" v-model="movieInfo.actor">
 
   <div>
-    <button @click="movieList.push('Wonder Women')">Add</button>
+    <button @click="movieList = movieList.concat(['Wonder Women'])">Add</button>
   </div>
 </template>
 
@@ -56,7 +56,7 @@ export default {
       handler(newValue){
         console.log(`Updated List ${newValue}`)
       },
-      deep: true
+      // deep: true
     }
   }
 }
