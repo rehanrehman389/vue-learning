@@ -1,8 +1,9 @@
 <template>
-  <h2 v-once>{{ name }}</h2>
-  <button @click="name = 'Midhat'">Change Name</button>
-
-  <h2 v-pre>{{ name }}</h2>
+  <h2>{{ firstName }} {{ lastName }}</h2>
+  <h2> {{ fullName }}</h2>
+  <h2>Total - {{ items.reduce((total, curr) => (total = total + curr.price), 0)}}</h2>
+  <button @click="items.push({id: 4, title: 'Keyboard', price: 40})">Add Item</button>
+  <h2>{{ total }}</h2>
 </template>
 
 <script>
@@ -11,10 +12,36 @@ export default {
   name: 'App',
   data() {
     return {
-      name: 'Rehan'
+      firstName: 'Rehan',
+      lastName: 'Ansari',
+      items: [
+        {
+            id: 1,
+            title: 'TV',
+            price: 100
+        },
+        {
+            id: 2,
+            title: 'Mobile',
+            price: 150
+        },
+        {
+            id: 3,
+            title: 'Laptop',
+            price: 400
+        }
+      ]
     }
   },
   methods: {
+  },
+  computed: {
+    fullName() {
+      return `${this.firstName} ${this.lastName}`
+    },
+    total() {
+      return this.items.reduce((total, curr) => (total = total + curr.price), 0)
+    }
 
   }
 }
