@@ -6,6 +6,13 @@
     <button @click="volume -= 2">Decrease</button>
   </div>
   <input type="text" v-model="movie">
+
+  <input type="text" v-model="movieInfo.title">
+  <input type="text" v-model="movieInfo.actor">
+
+  <div>
+    <button @click="movieList.push('Wonder Women')">Add</button>
+  </div>
 </template>
 
 <script>
@@ -15,7 +22,12 @@ export default {
   data() {
     return {
       volume: 0,
-      movie: 'Rehan'
+      movie: 'Rehan',
+      movieInfo: {
+        title: '',
+        actor: ''
+      },
+      movieList: ['Batman', 'Superman']
     }
   },
   methods: {
@@ -33,6 +45,18 @@ export default {
         console.log(`Calling API with Moviename = ${newValue}`)
       },
       immediate: true,
+    },
+    movieInfo: {
+      handler(newValue){
+        console.log(`calling title = ${newValue.title} and actor = ${newValue.actor}`)
+      },
+      deep: true
+    },
+    movieList: {
+      handler(newValue){
+        console.log(`Updated List ${newValue}`)
+      },
+      deep: true
     }
   }
 }
