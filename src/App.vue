@@ -3,7 +3,7 @@
   <GreetText name="Midhat" heroname="MID" />
   <GreetText :name="name" :heroname="heroname" /> -->
 
-  <TestArticle title="Aritcle Title" :likes=50 :isPublished="true" />
+  <TestArticle id="my-article" title="Aritcle Title" :likes=50 :isPublished="true" />
 </template>
 
 <script>
