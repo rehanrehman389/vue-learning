@@ -1,16 +1,18 @@
 <template>
-  <GreetText name="Rehan" heroname="Rehu" />
+  <!-- <GreetText name="Rehan" heroname="Rehu" />
   <GreetText name="Midhat" heroname="MID" />
-  <GreetText :name="name" :heroname="heroname" />
+  <GreetText :name="name" :heroname="heroname" /> -->
+
+  <TestArticle title="Aritcle Title" :likes=50 :isPublished="true" />
 </template>
 
 <script>
-import GreetText from './components/GreetText.vue'
+import TestArticle from './components/TestArticle.vue'
 
 export default {
   name: 'App',
   components: {
-    GreetText
+    TestArticle,
   },
   data() {
     return {
