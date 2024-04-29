@@ -2,22 +2,29 @@
   <!-- <GreetText name="Rehan" heroname="Rehu" />
   <GreetText name="Midhat" heroname="MID" />
   <GreetText :name="name" :heroname="heroname" /> -->
-
-  <TestArticle id="my-article" title="Aritcle Title" :likes=50 :isPublished="true" />
+  <h2>App {{ name }}</h2>
+  <CompC />
 </template>
 
 <script>
-import TestArticle from './components/TestArticle.vue'
+import CompC from './components/CompC.vue'
 
 export default {
   name: 'App',
   components: {
-    TestArticle,
+    CompC,
   },
   data() {
     return {
-      name: 'Saqlain',
-      heroname: 'Shaikh'
+      name: 'midhatshaikh26'
+    }
+  },
+  // provide: {
+  //   username: this.name
+  // }
+  provide() {
+    return {
+      username: this.name
     }
   }
 }
