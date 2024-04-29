@@ -1,5 +1,7 @@
 <template>
-  <GreetText />
+  <GreetText name="Rehan" heroname="Rehu" />
+  <GreetText name="Midhat" heroname="MID" />
+  <GreetText :name="name" :heroname="heroname" />
 </template>
 
 <script>
@@ -9,6 +11,12 @@ export default {
   name: 'App',
   components: {
     GreetText
+  },
+  data() {
+    return {
+      name: 'Saqlain',
+      heroname: 'Shaikh'
+    }
   }
 }
 </script>
