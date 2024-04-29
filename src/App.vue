@@ -1,30 +1,27 @@
 <template>
-  <!-- <GreetText name="Rehan" heroname="Rehu" />
-  <GreetText name="Midhat" heroname="MID" />
-  <GreetText :name="name" :heroname="heroname" /> -->
-  <h2>App {{ name }}</h2>
-  <CompC />
+  <button @click="showPopup = true">Show Popup</button>
+  <!-- <PopUp v-show="showPopup" @close="showPopup = false" /> -->
+  <PopUp v-show="showPopup" @close="closePopup" />
+
 </template>
 
 <script>
-import CompC from './components/CompC.vue'
+import PopUp from './components/PopUp.vue'
 
 export default {
   name: 'App',
   components: {
-    CompC,
+    PopUp
   },
   data() {
     return {
-      name: 'midhatshaikh26'
+      showPopup: false
     }
   },
-  // provide: {
-  //   username: this.name
-  // }
-  provide() {
-    return {
-      username: this.name
+  methods: {
+    closePopup(name) {
+      this.showPopup = false
+      console.log(name)
     }
   }
 }
