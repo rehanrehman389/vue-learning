@@ -21,7 +21,7 @@ import axios from 'axios'
         },
         methods: {
             getPosts() {
-                axios.get('https://jsonplaceholder.typicode.com/postss')
+                axios.get('https://jsonplaceholder.typicode.com/posts')
                     .then((r) => {
                         this.posts = r.data
                     })
