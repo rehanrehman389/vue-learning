@@ -1,19 +1,19 @@
 <template>
   <div>
-    <CreatePost />
-    <PostList />
+    <ClickCounter />
+    <HoverCounter />
   </div>
 </template>
 
 <script>
-import CreatePost from './components/CreatePost.vue'
-import PostList from './components/PostList.vue'
+import ClickCounter from './components/ClickCounter.vue'
+import HoverCounter from './components/HoverCounter.vue'
 
 export default {
   name: 'App',
   components: {
-    PostList,
-    CreatePost
+    ClickCounter,
+    HoverCounter
   },
   data() {
     return {
