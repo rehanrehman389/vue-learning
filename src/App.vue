@@ -1,16 +1,16 @@
 <template>
   <div>
-    <GreetText />
+    <DemoTwo />
   </div>
 </template>
 
 <script>
-import GreetText from './components/GreetText.vue'
+import DemoTwo from './components/DemoTwo.vue'
 
 export default {
   name: 'App',
   components: {
-    GreetText
+    DemoTwo
   },
   data() {
     return {
