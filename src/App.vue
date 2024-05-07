@@ -1,23 +1,34 @@
 <template>
   <div>
-    <MethodS />
+    <h3>{{ name }}</h3>
+    <CompC />
   </div>
 </template>
 
 <script>
-import MethodS from './components/MethodS.vue'
+import CompC from './components/CompC.vue'
+import { provide } from 'vue'
 
 export default {
   name: 'App',
+  setup() {
+    provide('c_username', 'NewValue By Provide')
+  },
   components: {
-    MethodS
+    CompC
   },
   data() {
     return {
+      name: 'Rehan'
     }
   },
   methods: {
-  }
+  },
+  // provide() {
+  //   return {
+  //     username: this.name
+  //   }
+  // }
 }
 </script>
 

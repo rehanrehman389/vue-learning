@@ -1,12 +1,19 @@
 <template>
     <h2>Component F</h2>
-    <h2>F {{ username }}</h2>
+    <h2>F {{ child_user }}</h2>
 </template>
 
 <script>
+import { inject } from 'vue'
     export default {
         name: 'CompF',
-        inject: ['username']
+        setup() {
+            const child_user = inject('c_username', 'Default')
+
+            return{
+                child_user
+            }
+        },
     }
 </script>
 
