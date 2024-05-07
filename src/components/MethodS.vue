@@ -1,13 +1,11 @@
 <template>
     <div>
-        <h2>{{ name }}</h2>
-        <button @click="setName">Change Name</button>
+        <input type="text" placeholder="First Name" v-model="fName" />
+        <input type="text" placeholder="Last Name" v-model="lName" />
 
-        {{ count }}
-        <button @click="incCount">Icrease Count</button>
-
-        <h2>{{ first }} {{ last }}</h2>
-        <button @click="changeName">Change Hero</button>
+        <input type="text" placeholder="Hero Name" v-model="heroName" />
+        <input type="text" placeholder="First Name" v-model="firstName" />
+        <input type="text" placeholder="Last Name" v-model="lastName" />
     </div>
 </template>
 
@@ -15,39 +13,23 @@
 import { ref, reactive, toRefs } from 'vue'
     export default {
         name: 'MethodS',
-        setup(){
-            const count = ref(0)
+        setup() {
+            const heroName = ref('')
             const state = reactive({
-                first: 'Test First',
-                last: 'Test Last'
+                firstName: '',
+                lastName: ''
             })
 
-            function incCount() {
-                count.value++
-            }
-
-            function changeName() {
-                state.first = 'New First'
-                state.last = 'New Last'
-            }
-
             return{
-                count,
-                incCount,
-                ...toRefs(state),
-                changeName
+                heroName,
+                ...toRefs(state)
             }
         },
         data() {
             return{
-                name: 'Rehan'
+                fName: '',
+                lName: ''
             }
-        },
-        methods: {
-            setName(){
-                this.name = 'Ansari'
-            }
-
         }
     }
 </script>
