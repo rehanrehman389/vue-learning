@@ -1,16 +1,16 @@
 <template>
   <div>
-    <DemoTwo />
+    <MethodS />
   </div>
 </template>
 
 <script>
-import DemoTwo from './components/DemoTwo.vue'
+import MethodS from './components/MethodS.vue'
 
 export default {
   name: 'App',
   components: {
-    DemoTwo
+    MethodS
   },
   data() {
     return {
