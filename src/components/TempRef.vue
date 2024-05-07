@@ -6,16 +6,24 @@
 </template>
 
 <script>
+import {ref, onMounted} from 'vue'
 import PostList from './PostList.vue'
     export default {
         name: 'TempRef',
+        setup() {
+            const inputRef = ref(null)
+
+            onMounted(() => {
+                inputRef.value.focus()
+            })
+
+            return{
+                inputRef
+            }
+        },
         components: {
             PostList
         },
-        mounted() {
-            console.log(this.$refs.postListRef)
-            this.$refs.inputRef.focus()
-        }
     }
 </script>
 

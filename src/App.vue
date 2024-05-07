@@ -1,21 +1,18 @@
 <template>
   <div>
-    <h3>{{ name }}</h3>
-    <CompC />
+    <TempRef />
   </div>
 </template>
 
 <script>
-import CompC from './components/CompC.vue'
-import { provide } from 'vue'
+import TempRef from './components/TempRef.vue'
 
 export default {
   name: 'App',
   setup() {
-    provide('c_username', 'NewValue By Provide')
   },
   components: {
-    CompC
+    TempRef
   },
   data() {
     return {
