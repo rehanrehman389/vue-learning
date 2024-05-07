@@ -1,61 +1,41 @@
 <template>
     <div>
-        <input type="text" placeholder="First Name" v-model="fName" />
-        <input type="text" placeholder="Last Name" v-model="lName" />
-        <h2>{{ fullName }}</h2>
-
-
-        <input type="text" placeholder="First Name" v-model="refFirstName" />
-        <input type="text" placeholder="Last Name" v-model="refLastName" />
-        <h2>{{ refFullName }}</h2>
-
-        <input type="text" placeholder="First Name" v-model="reactiveFirstName" />
-        <input type="text" placeholder="Last Name" v-model="reactiveLastName" />
-        <h2>{{ reactiveFullName }}</h2>
+        <input type="text" placeholder="Name" v-model="firstName" />
+        <input type="text" placeholder="Name" v-model="lastName" />
     </div>
 </template>
 
 <script>
-import { ref, computed, reactive, toRefs } from 'vue'
+import { ref, watch } from 'vue'
     export default {
         name: 'MethodS',
         setup() {
-            const refFirstName = ref('')
-            const refLastName = ref('')
+            const firstName = ref('')
+            const lastName = ref('Mid')
 
-            const refFullName = computed(function() {
-                return `${refFirstName.value} ${refLastName.value}`
-            })
-
-            const reactiveFullName = computed(function() {
-                return `${state.reactiveFirstName} ${state.reactiveLastName}`
-            })
-
-            // const heroName = ref('')
-            const state = reactive({
-                reactiveFirstName: '',
-                reactiveLastName: ''
-            })
+            watch([firstName, lastName], (newValues, oldValues) => {
+                console.log('Ref FirstName Old Value', oldValues[0])
+                console.log('Ref FirstName New Value', newValues[0])
+                console.log('Ref LastName Old Value', oldValues[1])
+                console.log('Ref LastName New Value', newValues[1])
+            }, {immediate: true})
 
             return{
-                refFirstName,
-                refLastName,
-                refFullName,
-                ...toRefs(state),
-                reactiveFullName
+                firstName,
+                lastName
             }
         },
         data() {
             return{
-                fName: '',
-                lName: ''
+                name: '',
             }
         },
-        computed: {
-            fullName() {
-                return `${this.fName} ${this.lName}`
-            },
-        },
+        watch: {
+            name(newValue, oldValue){
+                console.log('Old Value', oldValue)
+                console.log('New Value', newValue)
+            }
+        }
     }
 </script>
 
