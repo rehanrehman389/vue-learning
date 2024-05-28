@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      name: 'Ayesha'
+      name: 'Final Name'
     }
   },
   methods: {
