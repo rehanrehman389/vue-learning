@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      name: 'Midhat'
+      name: 'Test'
     }
   },
   methods: {
